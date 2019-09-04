@@ -1,0 +1,101 @@
+<!--pages/logs/orderForm/orderconfim/orderconfim.wxml-->
+<view class='order'>
+  <!-- 地址部分 -->
+
+  <view class='location-back'>
+    <view class='location'>
+      <view class='infomation' wx:if='{{addressInfo!=""}}'>
+        <view>
+          <image src='/images/address.png'></image>
+        </view>
+        <view>
+          <text>{{addressInfo.name}}</text>
+          <text>{{addressInfo.phone}}</text>
+          <text>{{addressInfo.address}}</text>
+        </view>
+      </view>
+
+      <view class='tabList'>
+        <view wx:for='{{tabList}}' wx:key='index' data-index="{{index}}" bindtap='changeTab'>
+
+          <text class="{{ tabIndex===index?'on':'' }}">{{item}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 订单部分 -->
+  <view class='content'>
+    <view class='item-wrpg' wx:for="{{goods}}" wx:key="">
+      <image src="{{item.image}}"></image>
+      <view class='allinfomation'>
+        <view class='right-box-name'>
+          <view class='goodsName'>{{item.goodsName}}</view>
+
+          <!-- <text>￥{{item.price}}</text> -->
+          <view class='right-box'>
+
+            <checkbox-group>
+              <checkbox value="彩印" disabled='true' checked="{{item.color}}" />彩印
+              <checkbox value="黑白" disabled='true' checked="{{item.black}}" wx:if='{{isImg=="false"}}'>黑白</checkbox>
+
+            </checkbox-group>
+            <radio-group class="radio-group" wx:if='{{isImg=="false"}}'>
+              <radio disabled='true' checked="{{item.isThree}}" />A3
+              <radio  disabled='true' checked="{{!item.isThree}}" />A4
+            </radio-group>
+          </view>
+        </view>
+        <view>
+          <!-- <text>规格：{{item.goodsSpecName}}</text> -->
+          <text>x{{item.num}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class='subjectList'>
+    <text>商品价格</text>
+    <text>￥{{goodPrice}}</text>
+  </view>
+  <view wx:if='{{tabIndex==0}}'>
+    <view class='subjectList'>
+      <text>运费</text>
+      <text>￥{{freight}}</text>
+    </view>
+    <view class='subjectList'>
+      <text>订单总计</text>
+      <text>￥{{totalPrice}}</text>
+    </view>
+  </view>
+  <view class='subjectList' bindtap='showShuoMing'>
+    <text>费用说明</text>
+    <van-icon name='arrow' color='#666'></van-icon>
+  </view>
+  <view class='shuoming' wx:if='{{showShuoMing==true}}'>
+    <textarea value='{{desc}}' disabled='true'></textarea>
+    <!-- <text>1. 不满2元的一律按2元计算</text>
+    <text>2. 打印费满2元的一律加1元的配送费</text>
+    <text>3. 每天按3次时间配送，提供宅急送服务，独立配送费4元+打印费！</text> -->
+  </view>
+  <view class='subjectList desc' >
+    <text>想对商家说(可备注自提地址)</text>
+    <textarea value='' auto-height='{{true}}' placeholder='写下你想说的话~' placeholder-style='color:gray'  bindinput='getDesc'></textarea>
+  </view>
+  <picker mode='date' bindchange='onDateChange'>
+    <van-cell title="提货日期" is-link value='{{orderDate}}' required />
+  </picker>
+  <picker wx:if='{{tabIndex==1}}' class='time' mode='time' bindchange='onTimeChange'>
+    <van-cell title="提货时间" value="{{orderTime}}" is-link required/>
+  </picker>
+  <picker wx:else class='time' mode='selector' range='{{sendTime}}' range-key="{{'name'}}" bindchange='onTimeSendChange'>
+    <van-cell title="提货时间" value="{{sendOrderTime}}" is-link required/>
+  </picker>
+  
+</view>
+
+
+<view class='btn'>
+  <button bindtap='onGopPay'>提交订单</button>
+</view>

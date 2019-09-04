@@ -1,0 +1,44 @@
+/* pages/upload/upload.wxss */
+page{
+    height: 100%;
+    font-size: 30rpx;
+    background: #f2f2f2;
+    /* background-color: rgb(123, 166, 209); */
+}
+.save{
+  position: absolute;
+right: 0;
+bottom: 200rpx;
+padding: 20rpx;
+background: red;
+}
+.up-wrpg{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: row
+}
+.upload>image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.upload{
+width: 45%;
+min-height: 150rpx;
+background: #fff;
+padding: 20rpx;
+margin: 20rpx;
+border-radius: 20rpx;
+box-shadow: 8rpx 8rpx 8rpx rgb(230, 226, 226);
+}
+.upload>view{
+  display: flex;
+  flex-flow: column;
+}
+.upload>view>text:first-child{
+  font-weight: bold;
+}
+.upload>view>text:last-child{
+  font-size: 22rpx;
+  color: gray;
+}

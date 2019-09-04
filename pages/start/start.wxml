@@ -1,0 +1,30 @@
+
+<view class="container">
+  <view class="remind-box" wx:if="{{remind}}">
+    <image class="remind-img" ></image>
+  </view>
+  <block wx:else>
+    <view class='s-title'>宅嘉打印</view>
+    <view class="content">
+      <view class="hd" style="transform:rotateZ({{angle}}deg);">
+        <image class="wave"  mode="aspectFill"></image>
+        <image class="wave wave-bg"  mode="aspectFill"></image>
+      </view>
+      <view class="bd">
+<!-- wx:if="{{show}}" -->
+        <view >
+            <button class="confirm-btn" disabled='{{disabled}}' open-type="getUserInfo" bindgetuserinfo='reg' >
+              <text >授权登录</text>
+            </button>
+        </view>
+      
+        <!-- <text class="copyright">本程序由翼速网络提供</text> -->
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- 
+<video src="{{backvideo}}" style='height:{{windowHeight}}px' autoplay='true' loop='true' controls="{{false}}" objectFit='fill'>
+  <button bindgetuserinfo='reg' open-type="getUserInfo">登录</button>
+</video> -->

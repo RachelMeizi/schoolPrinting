@@ -1,0 +1,10 @@
+ <view class="imgs">
+      <block wx:for="{{ imgs }}" wx:key="{{ index }}">
+        <view class="img-box">
+          <image src="{{ item }}" />
+          <icon class="iconfont" size='18px' color="gray" data-index='{{ index }}' bind:tap="close" type='cancel'></icon>
+      
+        </view>
+      </block>
+      <image bind:tap="uploadImg" class="add" src="./upload.png" />
+    </view>

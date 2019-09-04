@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "新增地址",
+  "usingComponents": {
+        "van-cell": "/components/cell/index",
+        "van-cell-group": "/components/cell-group/index",
+        "van-field": "/components/field/index",
+        "van-tag": "/components/tag/index",
+        "van-submit-bar": "/components/submit-bar/index",
+        "van-notice-bar": "/components/notice-bar/index",
+        "van-icon": "/components/icon/index"
+  }
+}

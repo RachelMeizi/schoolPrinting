@@ -1,0 +1,27 @@
+<!-- <view class='upload-view'>
+      <view class='upload'>
+        <text>点击上传文件</text>
+      </view>
+    </view> -->
+<!-- <web-view src='http://127.0.0.1:8020/HelloHBuilder/example/index.html?__hbt=1559980801040'>
+</web-view> -->
+
+<!-- <cover-view class='save'>保存</cover-view> -->
+
+<view class='up-wrpg'>
+  <view  class='up-wrpg upload' data-isImg='true' bindtap='print'>
+    <view>
+      <text>照片上传</text>
+      <text>.jpeg,.jpg,.png</text>
+    </view>
+    <image src='/images/img.png'></image>
+  </view>
+  <view class='up-wrpg upload' data-isImg='false' bindtap='print'>
+    <view>
+      <text>文档打印</text>
+      <text>聊天文件一键打印</text>
+    </view>
+    <image src='/images/doc.png'></image>
+  </view>
+
+</view>

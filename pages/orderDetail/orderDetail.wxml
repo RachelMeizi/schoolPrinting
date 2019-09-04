@@ -1,0 +1,77 @@
+<view class='appoint-time'>预约时间：{{appointTime}}</view>
+
+<view class='out'>
+  <view wx:for="{{goods}}" wx:key="" class='goods'>
+    <view class='goods-cont'>
+      <image src='{{item.img}}'></image>
+      <view class='goods-name'>
+        <view >{{item.goodsName}}</view>
+        <view><radio disabled='true' checked='item.isThree==1?"true":"false"'>{{item.isThree==1?"A3":"A4"}}</radio></view>
+        <view wx:if='{{item.black==1}}' class='black'>
+          <view>
+            <text>黑白</text>
+            <text>x{{item.num}}</text>
+          </view>
+          <view class='singleprice'>单价：￥{{item.b_price}}/份</view>
+        </view> 
+        <view wx:if='{{item.color==1}}' class='black'>
+          <view>
+            <text>彩印</text>
+            <text>x{{item.num}}</text>
+          </view>
+          <view class='singleprice'>单价：￥{{item.c_price}}/份</view>
+
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='all-price'>
+    <view>共
+      <text>{{goods.length}}</text> 件商品
+    </view>
+    <view>运费：
+      <text>￥{{freight}}</text>
+    </view>
+    <view>实付：
+      <text>￥{{allPrice}}</text>
+    </view>
+  </view>
+</view>
+
+<view class='detail'>
+  <view class='detail-cont'>
+    <view>订单号：</view>
+    <view>{{orderNum}}</view>
+  </view>
+  <view class='detail-cont'>
+    <view>创建时间：</view>
+    <view>{{orderTime}}</view>
+  </view>
+  <view class='detail-cont'>
+    <view>联系人：</view>
+    <view>{{userName}}</view>
+  </view>
+  <view class='detail-cont'>
+    <view>手机号：</view>
+    <view>{{userPhone}}</view>
+  </view>
+  <view class='detail-cont'>
+    <view>校区：</view>
+    <view>{{school}}</view>
+  </view>
+  <view class='detail-cont'>
+    <view>地址：</view>
+    <view>{{site}}</view>
+  </view>
+   <view class='detail-cont'>
+    <view>订单描述：</view>
+    <view>{{desc}}</view>
+  </view>
+
+  <!-- <view class='detail-cont'>
+    <view>备注：</view>
+    <view>{{remark}}</view>
+  </view> -->
+</view>
+
+<view class='pay' wx:if='{{status==0}}' bindtap='gopay'>立即支付</view>

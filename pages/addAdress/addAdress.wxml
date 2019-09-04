@@ -1,0 +1,53 @@
+<!-- <view wx:if="{{showAddress==0}}">
+  <view class='shopList' wx:for='{{shopList}}' wx:key='' data-item='{{item}}' bindtap='setAddress'>
+    <view class='nike'>
+      <image  src='/images/nike.png' style="opacity:{{item.flag?1:0}}"></image>
+    </view>
+    <view class='shoplistInfo'>
+      <text>{{item.name}}</text>
+      <view>
+        <image src='/images/time.png'></image>
+        <text>{{item.time}}</text>
+      </view>
+      <view>
+        <image src='/images/address.png'></image>
+        <text>{{item.address}}</text>
+      </view>
+    </view>
+  </view>
+</view> -->
+<view wx:if='{{showAddress==0}}'>
+
+  <view class='wrpg'>
+    <view class='address'>
+      <view class='addRe' wx:for="{{addressList}}" wx:key="">
+        <view class='infomation'>
+          <view>
+            <text>{{item.name}}</text>
+            <text>{{item.phone}}</text>
+          </view>
+          <view>{{item.address}}</view>
+        </view>
+        <view class='set' data-item='{{item}}' data-index='{{index}}' bindtap='setAddress'>
+
+          <radio color='rgb(253, 140, 118)' checked='{{item.is_defalut==1?true:false}}'>默认地址</radio>
+
+          <!-- <view>
+          <image src='/images/yuan.png'></image>
+          <text>默认地址</text>
+        </view> -->
+          <view>
+            <!-- <text>编辑</text> -->
+            <text data-item='{{item}}' bindtap='deladdress'>删除</text>
+          </view>
+        </view>
+        <view style=" height: 20rpx;  width: 100 %; background: #f2f2f2; "></view>
+      </view>
+    </view>
+    <button bindtap="goAdd">添加新地址</button>
+  </view>
+  <view class='warn' wx:if="{{addressList==''}}">
+    <image src='https://dwz.cn/D4xYeHtz'></image>
+    <text>暂时没有地址，去添加吧~</text>
+  </view>
+</view>

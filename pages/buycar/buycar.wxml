@@ -1,0 +1,69 @@
+<wxc-abnor type="CART" wx:if='{{noList}}'>
+  <view class='noList'>
+    <text>暂无照片</text>
+  </view>
+</wxc-abnor>
+
+
+<view wx:else>
+
+  <view class='main'>
+    <view wx:if='{{shopcarData=="" && isImg=="true"}}' class='noList' bind:tap="uploadImg">
+      <image src='/images/upload.png'></image>
+      <text>点击上传照片</text>
+    </view>
+    <view wx:if='{{shopcarData=="" && isImg=="false"}}' class='noList' bind:tap="uploadDoc">
+      <image src='/images/upload.png'></image>
+      <text>上传文档~</text>
+    </view>
+    <view class='shop' wx:for='{{shopcarData}}' wx:key='this'>
+      <!-- <view class='shop_check_box' data-index='{{index}}' >
+
+      </view> -->
+      <image class='del' src='/images/close.png' data-index='{{index}}' bindtap='deleteGood'></image>
+      <image class='shop_img' src='{{item.imgName}}' mode='aspectFill'>
+      </image>
+      <view class='shop_detail'>
+        <view class='shop_detail-top'>
+          <text class='shop_name'>{{item.goodsName}}</text>
+          <view>
+
+            <checkbox-group bindchange="onChange" data-index='{{index}}'>
+              <checkbox value="彩色" checked="{{color}}" />彩印
+              <checkbox value="黑白" checked="{{black}}" wx:if='{{isImg=="false"}}'>黑白
+              </checkbox>
+            </checkbox-group>
+            <!-- wx:if='{{isImg=="false"}}' -->
+            <radio-group class="radio-group"          
+   bindchange="radioChange" data-index='{{index}}' wx:if='{{isImg=="false"}}'>
+              <radio value='A3' checked="{{isThree}}" />A3
+              <radio value='A4' checked="{{!isThree}}" />A4
+            </radio-group>
+            <view>
+
+            </view>
+          </view>
+        </view>
+        <view class='shop_detail_bottom'>
+          <view class='shop_price'></view>
+          <van-stepper value="{{ item.num }}" bind:change="numchangeTap" data-index='{{index}}' />
+        </view>
+      </view>
+    </view>
+
+    <view class='comfirm-buy'>
+      <view class='all-money' wx:if="{{isImg=='true'}}" bind:tap="uploadImg">
+        上传照片
+      </view>
+      <view class='all-money' wx:if="{{isImg=='false'}}" bind:tap="uploadDoc">
+        上传文档
+      </view>
+      <view class='go-pay' catchtap='goclearingTap'>打印</view>
+
+    </view>
+    <!-- <image bind:tap="uploadImg" class="add" src="./upload.png" /> -->
+  </view>
+
+
+
+</view>

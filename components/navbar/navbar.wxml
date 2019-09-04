@@ -1,0 +1,24 @@
+<view class='navbar-container'>
+  <!-- 横向选项卡 -->
+  <view wx:if='{{direction!=="column"}}'>
+    <scroll-view scroll-x>
+      <view class='navbar-x'>
+        <block wx:for='{{tabBarList}}' wx:key=''>
+          <view bindtap='onChangeTab' data-index='{{index}}' class='tab-item {{current==index?"active":""}}'>{{item}}</view>
+        </block>
+        <view class='navbar-slider-x' style='width:{{sliderWidth}}px;transform: translateX({{sliderOffset}}px);;left:{{silderLeft}}px'></view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 竖向选项卡 -->
+  <view wx:else>
+    <scroll-view scroll-y style='height:{{scrollHeight}}px;' class='scroll-y'>
+      <view class='navbar-y'>
+        <block wx:for='{{tabBarList}}' wx:key=''>
+          <view bindtap='onChangeTab' data-index='{{index}}' class='tab-item {{current==index?"active":""}}' style='border-bottom:none'>{{item}}</view>
+        </block>
+        <view class='navbar-slider-y' style='height:{{sliderHeight}}px;transform: translateY({{sliderOffset}}px);top:{{silderTop}}px'></view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

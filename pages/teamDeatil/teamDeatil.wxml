@@ -1,0 +1,12 @@
+<!--pages/company/teamDeatil/teamDeatil.wxml-->
+
+<view class='new' wx:for="{{team}}" wx:key="">
+    <image src="{{item.teams_img}}"></image>
+    <view>
+      <view>
+        <text class='tip'>{{item.name}}</text>
+        <view class='tip'>{{item.schoolName}}管理员</view>
+      </view>
+      <text>联系电话：{{item.phone}}</text>
+    </view>
+  </view>

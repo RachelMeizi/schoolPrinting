@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "确认订单",
+  "usingComponents": {
+    "van-icon": "/components/icon/index",
+    "wxc-abnor": "/components/wxc-abnor/index",
+    "van-popup": "/components/popup/index",
+    "van-tab": "/components/tab/index",
+    "van-tabs": "/components/tabs/index",
+    "van-cell": "/components/cell/index",
+    "van-cell-group": "/components/cell-group/index"
+  }
+}

@@ -1,0 +1,72 @@
+.navbar-container {
+  width: 100%;
+}
+
+.scroll-y {
+  width: 4em;
+}
+
+.navbar-x {
+  display: flex;
+  position: relative;
+  background: #fff;
+  color: #ccc
+}
+
+.navbar-y {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-right: 2rpx #ccc solid;
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 3em;
+  font-size: 30rpx;
+  min-width: 4em;
+  min-height: 3em;
+  border-bottom: 2rpx #ccc solid;
+}
+
+.tab-item.active {
+  color: green;
+}
+
+.tab-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-slider-x {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 6rpx;
+  background: green;
+  transition: transform 0.3s;
+}
+
+.navbar-slider-y {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 6rpx;
+  background: green;
+  transition: transform 0.3s;
+}
+
+.tab-content>image {
+  width: 100%;
+  height: 100%;
+}
+.swiper-y{
+  width: 100%;
+  height: 100%;
+}
+

@@ -1,0 +1,48 @@
+<!-- 导航 -->
+<van-tabs active="{{ current }}" bind:change="changeNavbar" swipe-threshold="5">
+  <van-tab title="{{item}}" wx:for="{{tabBarList}}"></van-tab>
+</van-tabs>
+<!-- 非空 -->
+<view wx:if="{{orderList==''}}" class='tips'>
+  <image class='pai' src="/images/null.png"></image>
+  <text>你还木有交易记录~</text>
+</view>
+<!-- 订单部分 -->
+<view wx:else class='order'>
+  <view wx:for="{{orderList}}" wx:key=""  wx:for-item="items">
+    <view class="ordertop">
+      <text> {{orderStatus[items.status]}}</text>
+      <text>订单号：{{items.orderNum}}</text>
+    </view>
+    <view class='content' wx:for="{{items.goods}}" wx:key="" data-item='{{items}}'  bindtap='onDetail'>
+      <image src="{{item.img}}"></image>
+      <view class='allinfomation'>
+        <view>
+          <text>{{item.name}}</text>
+          <text>￥{{item.price}}</text>
+        </view>
+        <view wx:if='{{item.black==1}}' >
+          <text>黑白</text>
+          <text>x{{item.num}}</text>
+        </view>
+        <view wx:if='{{item.color==1}}'>
+          <text>彩印</text>
+          <text>x{{item.num}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='all-price'>
+      <view>{{items.time}}</view>
+      <view>
+        <text>共</text>
+      <text>{{items.goods.length}}</text>件商品，实付钱￥
+      <text>{{items.allPrice}}</text>
+      </view>
+    
+    </view>
+    <view class='select' wx:if="{{items.status===0}}">
+      <view catchtap='cancel' data-item='{{items}}'>取消订单</view>
+      <view bindtap='gopay' data-item='{{items}}'>立即支付</view>
+    </view>
+  </view>
+</view>

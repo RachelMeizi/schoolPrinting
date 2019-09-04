@@ -1,0 +1,77 @@
+/* pages/home/addAdress/address/address.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background: #f5f5f9;
+}
+.wprg{
+  width: 100%;
+  background: #fff;
+}
+.wrpg-comtent{
+width: 95%;
+background: #fff;
+margin: 0 auto;
+}
+/* 定位 */
+.location-back{
+  width: 100%;
+  height: 130rpx;
+  background: #f2f2f2;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.location{
+width: 100%;
+height: 90rpx;
+background: #fff;
+font-size: 30rpx;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.location image{
+  width: 80rpx;
+  height: 40rpx;
+}
+/* 填写信息 */
+.infomation{
+  width: 100%;
+  padding: 20rpx;
+  display: flex;
+  font-size: 30rpx;
+  justify-content: last baseline;
+  align-items: baseline;
+  border-bottom: 1rpx solid #f2f2f2;
+}
+
+.infomation input,.infomation view radio,.infomation view{
+  margin-left: 20rpx;
+
+}
+.infomation input{
+  width: 600rpx;
+}
+.bottom{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50rpx;
+/* padding: 20rpx; */
+
+}
+.bottom button{
+  width: 100%;
+  height: 90rpx;
+  background: #ff9434;  
+  color: #fff;
+  text-align: center;
+  border-radius: 0rpx;
+}
+.bottom button:first-child{ 
+  background: rgb(253, 140, 118);
+ 
+}

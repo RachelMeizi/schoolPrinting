@@ -1,0 +1,23 @@
+<!--pages/index/business/admin/orders/go-comments/go-comments.wxml-->
+<!-- 评价页面 -->
+<view class="comments">
+  <view class="describe">
+    <!-- <image class="goodimg" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=4212639482,1816603765&fm=27&gp=0.jpg"></image> -->
+    <view class="des-txt">留言建议或者意见</view>
+    <!-- <van-rate value="{{ starsW }}" bind:change="onChange" /> -->
+  </view>
+  <view class="input-comment">
+    <textarea maxlength='-1' placeholder="请输入您的建议"  bindinput='getcomtent' name="{{comtent}}" class="txt"></textarea>
+    <view class="imgs">
+      <block wx:for="{{ imgs }}" wx:key="{{ index }}">
+        <view class="img-box">
+          <image src="{{ item }}" />
+          <icon class="iconfont" size='18px' color="gray" data-index='{{ index }}' bind:tap="close" type='cancel'></icon>
+      
+        </view>
+      </block>
+      <image bind:tap="uploadImg" class="add" src="./upload.png" />
+    </view>
+  </view>  
+</view>
+<button bindtap='submit'>发布</button>

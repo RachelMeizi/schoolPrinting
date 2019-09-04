@@ -1,0 +1,27 @@
+<view class='wprg'>
+  <view class='wrpg-comtent'>
+    <!-- 定位 -->
+
+
+
+    
+      <van-cell-group>
+        <picker mode='selector' bindchange='changeSchool' range='{{school}}' range-key='name'>
+          <van-cell title="校区" is-link value='{{schoolArea}}' required />
+        </picker>
+         <picker mode='selector' bindchange='changeYuanQu' range='{{yuanqu}}' range-key='name'>
+          <van-cell title="园区" is-link value='{{parkName}}' required />
+        </picker>
+     
+        <van-field value="{{ address }}" label="详细地址" type="textarea" placeholder="请输入详细地址" autosize border="{{ false }}" clearable bindchange='onAddressChange' input-align='right' required border/>
+        <van-field value="{{ userName }}" label="联系人" type="input" placeholder="请输入联系人姓名" autosize border="{{ false }}" bindchange='onUserNameChange' input-align='right' required border/>
+        <van-field value="{{ phone }}" label="联系电话" type="input" placeholder="请输入联系方式" autosize border="{{ false }}" bindchange='onPhoneChange' input-align='right' required border/>
+        <van-field value="{{ wechat }}" label="微信号" type="input" placeholder="请输入微信号" autosize border="{{ false }}" bindchange='onWeChatChange' input-align='right'  border/>
+   
+      </van-cell-group>
+          <view class='bottom'>
+     
+          <button  bindtap='onSave'>保存</button>
+        </view>
+  </view>
+</view>

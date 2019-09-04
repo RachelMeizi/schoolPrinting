@@ -1,0 +1,77 @@
+/* pages/index/business/admin/orders/go-comments/go-comments.wxss */
+page {
+    padding: 40rpx;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+}
+.describe {
+    display: flex;
+    align-items: center;
+    font-size: 24rpx;
+    background-color: #fff;
+    padding: 20rpx;
+    position: relative
+}
+.goodimg {
+    width: 80rpx;
+    height: 80rpx;
+}
+.des-txt {
+    margin: 0 20rpx;
+}
+.input-comment {
+    margin-top: 4rpx;
+    background-color: #fff;
+    padding: 20rpx;
+    box-sizing: border-box;
+}
+
+.txt {
+    min-height: 200rpx;
+    font-size: 24rpx;
+    line-height: 40rpx;
+}
+.imgs {
+    margin-top: 20rpx;
+    display: flex;
+    flex-wrap: wrap
+}
+.img-box {
+    width: 100rpx;
+    height: 100rpx;
+    margin: 0 10rpx;
+    flex-shink: 0;
+    position: relative;
+    margin-bottom: 10rpx;
+}
+.img-box .iconfont {
+    position: absolute;
+    top: -10rpx;
+    right: 3rpx;
+    font-size: 16rpx;
+    width: 20rpx;
+    height: 20rpx;
+    line-height: 30rpx;
+    text-align: center;
+    /* background-color: #666; */
+    border-radius: 50%;
+    color: #fff;
+}
+
+.imgs image {
+    width: 100rpx;
+    height: 100rpx;
+}
+.add {
+    margin-left: 10rpx;
+}
+button{
+  width: 80%;
+  height: 80rpx;
+  background: #FF9966;
+  line-height: 80rpx;
+  margin: 0rpx auto;
+  margin-top: 30rpx;
+  color: white;
+  border-radius: 0rpx;
+}

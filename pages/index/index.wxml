@@ -1,0 +1,111 @@
+
+<!-- 公告 -->
+<van-notice-bar
+
+  left-icon="/images/laba.png"
+  text="{{notice}}"
+/>
+<view class="page">
+  <!-- <----下层左侧导航--->
+  <view class="page-bottom">
+    <view class="page-content">
+     <view class='headurl'  wx:if='{{loginUser!=""}}'>
+        <image src='{{loginUser.headurl}}'></image>
+        <text>{{loginUser.name}}</text>
+      </view>
+      <view class='headurl'  wx:else  bindtap='login'>
+        <button class='login' >登陆</button>
+      </view>
+     
+      <view  bindtap="open_list" wx:for-items="{{nav_list}}">
+        <navigator url='{{item.url}}'>
+        <view  class="page-list">        
+          <text>{{item.title}}</text>
+          <text> ></text>
+        </view>
+        </navigator>
+      </view>
+   
+       
+        <view  class="open_list">        
+         <button open-type='share'>分享</button>
+        </view>
+      
+    </view>
+  </view>
+  <!-- <----上层右侧展示页面--->
+  <view class="page-top {{open ? 'page-state' : ''}}">
+    <!-- <----上层右侧展示页面遮罩层--->
+    <view class="page-mask {{open ? '' : 'page-mask-show'}}" bindtap="offCanvas"></view>
+    <!-- <----列表按钮--->
+
+    <!-- 轮播代码-->
+
+    <view class="swiper">
+      <swiper class="swiper-box" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="#fff" indicator-active-color="red" style="height:350rpx">
+      
+        <block wx:for-items="{{banner_url}}" data-index='{{index}}' wx:key="index">
+          <swiper-item>          
+            <image class="imgw" src="{{item}}" mode="aspectFill" />          
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+  <image class="left-nav" bindtap="offCanvas" src="/images/more1.png"></image>
+    <!-- 导航 -->
+    <view class='best-rider-container'>
+      <view class='best-rider' bindtap='onGoBestRider'>
+
+        <view class='rider-info'>
+          <view class='rider-title'>个人信息填写</view>
+          <view class='rider-name-container'>
+            <view class='rider-name'>点击填写</view>
+            <view class='rider-count'>地址，电话，姓名</view>
+          </view>
+        </view>
+        <image class='rider-img' src='/images/head.png'></image>
+      </view>
+      <view class='rider-ranking' bindtap='onGoRiderRanking'>
+
+        <view class='rider-info'>
+          <view class='rider-title'>文档照片打印</view>
+          <image src='/images/print.png' mode='aspectFit'></image>
+          <view class='rider-time'>文档，照片</view>
+        </view>
+      </view>
+    </view>
+
+
+
+    <!-- 表单 -->
+    <view wx:if='{{showFrom}}'>
+
+
+      <van-cell-group>
+        <picker mode='selector' bindchange='changeSchool' range='{{school}}' range-key='name'>
+          <van-cell title="校区" is-link value='{{schoolArea}}' required />
+        </picker>
+         <picker mode='selector' bindchange='changeYuanQu' range='{{yuanqu}}' range-key='name'>
+          <van-cell title="园区" is-link value='{{parkName}}' required />
+        </picker>
+        <!-- <picker mode='date' bindchange='onDateChange'>
+    <van-cell title="预约日期" is-link value='{{orderDate}}' required />
+  </picker>
+  <picker mode='time' bindchange='onTimeChange'>
+    <van-cell title="预约时间" value="{{orderTime}}" is-link required/>
+  </picker>
+   -->
+        <van-field value="{{ address }}" label="详细地址" type="textarea" placeholder="请输入详细地址" autosize border="{{ false }}" clearable bindchange='onAddressChange' input-align='right' required border/>
+        <van-field value="{{ userName }}" label="联系人" type="input" placeholder="请输入联系人姓名" autosize border="{{ false }}" bindchange='onUserNameChange' input-align='right' required border/>
+        <van-field value="{{ phone }}" label="联系电话" type="input" placeholder="请输入联系方式" autosize border="{{ false }}" bindchange='onPhoneChange' input-align='right' required border/>
+        <van-field value="{{ wechat }}" label="微信号" type="input" placeholder="请输入微信号" autosize border="{{ false }}" bindchange='onWeChatChange' input-align='right'  border/>
+   
+      </van-cell-group>
+
+      <!-- <view style='height:100rpx;'></view> -->
+      <!-- <van-submit-bar price="{{ totalPrice }}" button-text="下一步" bind:submit="onGoNext" tip="{{tips}}" /> -->
+      <button bindtap='onSave'>保存</button>
+    </view>
+  </view>
+</view>
